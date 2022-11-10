@@ -96,20 +96,27 @@ async function editUser (req,res,next) {
     return res.json(dataReturn);
 }
 
-// [DELETE] /user/delete
+// [POST] /user/delete
 async function deleteUser (req,res,next) {
     let _id = req.body._id;
     let dataReturn = null;
 
     try {
-        await UserModule.deleteOne({ _id });
-        dataReturn = {
-            status: 1,
-            message: 'Xóa user thành công',
+        if (_id) {
+            await UserModule.deleteOne({ _id });
+            dataReturn = {
+                status: 1,
+                message: 'Xóa user thành công',
+            }
+        }else {
+            dataReturn = {
+                status: 0,
+                message: 'User không tồn tại',
+            }
         }
     } catch (error) {
         dataReturn = {
-            status: 1,
+            status: 0,
             message: 'User không tồn tại',
         }
     }

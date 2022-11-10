@@ -22,3 +22,35 @@
         }
     }
 }
+
+.addNewUserBtn {
+    i {
+        margin-left: 5px;
+    }
+}
+
+.modal-content .close {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.modal-addUser-body {
+    .form-group {
+        label {
+            width: 100%;
+            margin: 5px 0;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            font-size: 13px;
+            outline: none;
+        }
+    }
+}
