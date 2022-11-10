@@ -39,6 +39,7 @@ class UserManage extends Component {
                         <th>Email</th>
                         <th>Username</th>
                         <th>Role</th>
+                        <th>Age</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -50,6 +51,7 @@ class UserManage extends Component {
                                         <td>{user.email}</td>
                                         <td>{user.userName}</td>
                                         <td>{user.role}</td>
+                                        <td>{user.age}</td>
                                         <td>
                                             <button className='button'>Delete</button>
                                             <button className='button'>Edit</button>

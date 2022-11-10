@@ -40,6 +40,84 @@ async function getUser (req,res,next) {
     return res.json(dataReturn);
 }
 
+// [POST] /user/create
+async function createUser (req,res,next) {
+    let dataUser = req.body;
+    let dataReturn = null;
+    // check xem email có tồn tại không 
+    let checkEmail = await UserModule.findOne({
+        email: dataUser.email,
+    })
+
+    if (checkEmail) {
+        return res.json({
+            status: 0,
+            message: 'Email đã tồn tại trong hệ thống',
+        });
+    }
+
+    // lưu tài khoản
+    try {
+        const user = new UserModule(dataUser);
+        await user.save();
+
+        dataReturn = {
+            status: 1,
+            message: 'Thêm user thành công',
+        }
+    } catch (error) {
+        dataReturn = {
+            status: 0,
+            message: 'Lỗi server',
+        }
+    }
+    return res.json(dataReturn);
+}
+
+// [PUT] /user/edit 
+async function editUser (req,res,next) {
+    let dataUser = req.body;
+    let dataReturn = null;
+
+    if (dataUser && dataUser._id) {
+        try {
+            await UserModule.updateOne({_id: dataUser._id},dataUser);
+            dataReturn = {
+                status: 1,
+                message: 'Thông tin user đã được cập nhập',
+            }
+        } catch (error) {
+            dataReturn = {
+                status: 1,
+                message: 'User không tồn tại trên hệ thống',
+            }
+        }
+    }
+    return res.json(dataReturn);
+}
+
+// [DELETE] /user/delete
+async function deleteUser (req,res,next) {
+    let _id = req.body._id;
+    let dataReturn = null;
+
+    try {
+        await UserModule.deleteOne({ _id });
+        dataReturn = {
+            status: 1,
+            message: 'Xóa user thành công',
+        }
+    } catch (error) {
+        dataReturn = {
+            status: 1,
+            message: 'User không tồn tại',
+        }
+    }
+
+    return res.json(dataReturn);
+}
+
+// [POST] /auth/login
 function handleLogin (req,res,next) {
     // lấy ra email và password
     let email = req.body.email;
@@ -75,5 +153,8 @@ function handleLogin (req,res,next) {
 
 module.exports = {
     getUser,
-    handleLogin
+    createUser,
+    editUser,
+    deleteUser,
+    handleLogin,
 };
