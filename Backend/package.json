@@ -1,0 +1,16 @@
+{
+  "name": "hoidanit-frontend-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.2",
+    "mongoose-delete": "^0.5.4",
+    "mongoose-slug-generator": "^1.0.4"
+  }
+}
