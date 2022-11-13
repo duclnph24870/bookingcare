@@ -1,0 +1,116 @@
+.home-header-container {
+    height: 78px;
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .home-header-content {
+        width: 1170px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left-content {
+            display: flex;
+            align-items: center;
+            width: 20%;
+
+            button {
+                font-size: 25px;
+                border: none;
+                background: none;
+                color: #969495;
+                cursor: pointer;
+                transition:  color linear 0.3s;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+
+            .home-header-logo {
+                width: 160px;
+                height: 40px;
+                margin-left: 9px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .center-content {
+            display: flex;
+            align-items: center;
+            width: 60%;
+
+            .center-content-item {
+                color: #333;
+            }
+
+            .center-content-item + .center-content-item {
+                margin-left: 25px;
+            }
+
+            .center-content-title {
+                font-size: 15px;
+                font-weight: 600;
+                cursor: pointer;
+                transition:  color linear 0.2s;
+                margin: 0;
+
+                &:hover {
+                    color: #45c3d2;
+                }
+            }
+
+            .center-content-label {
+                font-size: 12px;
+            }
+
+        }
+
+        .right-content {
+            width: 20%;
+            display: flex;
+            align-items: center;
+
+            .right-content-held {
+                font-size: 14px;
+                border: none;
+                outline: none;
+                background: none;
+                color: #969495;
+                font-weight: 600;
+
+                i {
+                    margin-right: 5px;
+                    font-size: 16px;
+                    color: #45c3d2;
+                }
+            }
+
+            .language {
+                font-size: 15px;
+                color: #969495;
+                margin: 0 5px;
+                cursor: pointer;
+                transition: color linear 0.3s;
+
+                &:hover {
+                    color: #45c3d2;
+                }
+
+                &.active {
+                    color: #45c3d2;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+

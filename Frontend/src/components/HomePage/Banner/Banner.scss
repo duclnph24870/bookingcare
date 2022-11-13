@@ -1,0 +1,140 @@
+.banner_wrapper {
+    background-image: url(https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg);
+    height: 600px;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 45px;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        background-image: linear-gradient(180deg,rgba(0,0,0,0.5),transparent);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        background-image: linear-gradient(0deg,rgba(255,255,255,1),transparent);
+    }
+
+    .banner-content {
+        min-width: 768px;
+        z-index: 5;
+    }
+
+    // search 
+    .search {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .search-title {
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 32px;
+        }
+
+        .search-title + .search-title {
+            font-weight: 700;
+            margin-bottom: 80px;
+        }
+    
+        .search-input {
+            width: 456px;
+            position: relative;
+
+            input {
+                width: 100%;
+                padding: 13px;
+                border: none;
+                border-radius: 20px;
+                background-color: #f7d800;
+                outline: none;
+                font-size: 15px;
+                padding-left: 50px;
+                padding-right: 25px;
+            }
+
+            i.icon-search {
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(calc(-50% - 1px));
+                font-size: 17px;
+            }
+
+            i.icon-clear {
+                position: absolute;
+                display: none;
+                right: 20px;
+                top: 50%; 
+                cursor: pointer;
+                transform: translateY(calc(-50%));
+                
+            }
+
+            input:valid ~ i.icon-clear {
+                display: block;
+            }
+        }
+    }
+
+    // btn
+    .banner-content-bottom {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 85px;
+
+        .banner-content-btn {
+            width: calc(100%/9);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color linear 0.1s;
+            cursor: pointer;
+
+            &:hover {
+                color: #35838b;
+            }
+
+            .btn-icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 5px rgba(0,0,0,0.5);
+                margin-bottom: 5px;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+
+
+}
