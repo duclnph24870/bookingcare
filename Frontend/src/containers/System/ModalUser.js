@@ -51,7 +51,7 @@ class ModalUser extends Component {
                 }}
             >
                 <form onSubmit={e => this.handleSubmitModal(e)}>
-                    <ModalHeader toggle={this.props.toggle}>Add new user</ModalHeader>
+                    <ModalHeader toggle={this.props.toggle}>{!isUserEdit ? 'Add new user' : 'Edit user'}</ModalHeader>
                     <ModalBody className="modal-addUser-body">
                         <div className="container">
                             <div className="row">

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getUser, handleAddNewUser, handleDeleteUser, handleEditUser } from '../../services/useService.js'
 import { toast } from 'react-toastify';
 import ModalUser from './ModalUser';
+import { emitter } from '../../utils';
 
 class UserManage extends Component {
 
