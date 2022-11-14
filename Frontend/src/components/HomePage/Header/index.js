@@ -1,5 +1,8 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
+import { languages } from "../../../utils/constant";
+import { changeLanguageApp } from "../../../store/actions";
 
 import './Header.scss';
 
@@ -8,7 +11,14 @@ class Header extends Component {
         super(props)
     }
 
+    changeLanguage = (language) => {
+        if (!(this.props.language === language)) {
+            this.props.changeLanguageRedux(language);
+        }
+    }
+
     render () {
+        let language = this.props.language;
         return (
             <div className="home-header-container">
                 <div className="home-header-content">
@@ -49,8 +59,8 @@ class Header extends Component {
                             < FormattedMessage id="home-header.support"/>
                         </button>
 
-                        <div className="VN language active">VN</div>
-                        <div className="EN language">EN</div>
+                        <div className={language === languages.VI ? "VN language active" : "VN language"} onClick={e => this.changeLanguage(languages.VI)}>VN</div>
+                        <div className={language === languages.EN ? "EN language active" : "EN language"} onClick={e => this.changeLanguage(languages.EN)}>EN</div>
                     </div>
                 </div>
             </div>
@@ -58,4 +68,17 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        isLoggedIn: state.user.isLoggedIn,
+        language: state.app.language,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeLanguageRedux: language => dispatch(changeLanguageApp(language)),
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
